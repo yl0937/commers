@@ -1,14 +1,17 @@
-package com.example.commers;
+package com.example.commers.controller.member;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-public class MainController {
-
+public class MemberPageController {
     @RequestMapping("/")
     public String index(){
         return "index";
+    }
+
+    @RequestMapping("/member/registerPage")
+    public String registerPage(){
+        return "member/registerPage";
     }
 }

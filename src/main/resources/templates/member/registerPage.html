@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>회원 가입</title>
+</head>
+<body>
+    <h1>회원 가입</h1>
+    <form>
+        <div>
+            <a>아이디:</a>
+            <input type="text" id="nickName"/>
+        </div>
+        <div>
+            <a>비밀번호:</a>
+            <input type="e" id="password"/>
+        </div>
+        <div>
+            <a>이메일:</a>
+            <input type="email" id="email"/>
+        </div>
+        <div>
+            <a>전화번호:</a>
+            <input type="text" id="phone"/>
+        </div>
+        <div>
+            <a>생년월일:</a>
+            <input type="text" id="birth"/>
+        </div>
+        <div>
+            <button onclick="register()">회원 가입 하기</button>
+        </div>
+    </form>
+
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function register(){
+        var data = {
+            "nickname" : document.getElementById("nickName").value,
+            "password" : document.getElementById("password").value,
+            "email" : document.getElementById("email").value,
+            "phone" : document.getElementById("phone").value,
+            "birth" : document.getElementById("birth").value
+        }
+        var ajax = $.ajax({
+            url:"/member/register",
+            type:"POST",
+            data: JSON.stringify(data),
+            dataType : 'JSON',
+            contentType: 'application/json',
+            success:success()
+        });
+    }
+
+    function success(){
+        window.location = 'http://localhost:8080';
+    }
+</script>
