@@ -1,10 +1,16 @@
-package com.example.commers.repository.member;
+package com.example.commers.repository;
 
-import com.example.commers.domain.member.Member;
+import com.example.commers.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface MemberRepository extends JpaRepository<Member,Integer> {
-    Member getMemberByEmail(String email);
+
+    Optional<Member> findByEmail(String email);
+
+    boolean existsByEmail(String email);
+
 }

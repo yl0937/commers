@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h1>테스트 페이지</h1>
+    <button onclick="click1()">test</button>
+</div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function click1(){
+        var ajax = $.ajax({
+            url: "/cart/search",
+            type: 'GET',
+            success: function (result) {
+                if(result.code == 1000) {
+                    alert("클릭")
+                }
+                else if(result.code == 2001) {
+                    alert("검색 정보가 없습니다.");
+                }
+            }
+        });
+    }
+
+</script>

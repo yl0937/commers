@@ -1,4 +1,4 @@
-package com.example.commers.domain.cart;
+package com.example.commers.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,19 +8,18 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CartProduct {
+public class Cart {
 
     @Id
     @GeneratedValue
     private int id;
-
-    private int cartId;
-
-    private int productId;
+    private int userId;
+    private LocalDate createAt;
 }

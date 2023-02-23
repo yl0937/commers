@@ -1,15 +1,16 @@
-package com.example.commers.repository.cart;
+package com.example.commers.repository;
 
-import com.example.commers.domain.cart.CartProduct;
-import com.example.commers.domain.product.Product;
+import com.example.commers.domain.CartProduct;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface CartProductRepository extends JpaRepository<CartProduct,Integer> {
 
     List<CartProduct> findAllByCartIdIs(Integer cartId);
 
+    Optional<CartProduct> findByCartIdAndProductId(Integer cartId, Integer productId);
 }

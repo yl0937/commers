@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>로그인</title>
+</head>
+<body>
+<h1>로그인</h1>
+<form>
+    <div>
+        <a>이메일:</a>
+        <input type="email" id="email"/>
+    </div>
+    <div>
+        <a>비밀번호:</a>
+        <input type="e" id="password"/>
+    </div>
+    <div>
+        <button onclick="click1()">로그인</button>
+    </div>
+</form>
+
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function click1(){
+        var data = {
+            'email':document.getElementById("email").value,
+            'password':document.getElementById("password").value}
+        var ajax = $.ajax({
+            url: "/member/logIn",
+            type: 'POST',
+            data:JSON.stringify(data),
+            dataType : 'JSON',
+            contentType: 'application/json',
+            success: function (result) {
+                if(result.code == 1000) {
+                    alert("로그인 되었습니다.");
+                    window.location = 'http://localhost:8080';
+
+                }
+                else if(result.code == 2001) {
+                    alert("로그인 정보를 확인하십시오");
+                }
+            }
+        });
+        alert("로그인")
+    }
+
+</script>

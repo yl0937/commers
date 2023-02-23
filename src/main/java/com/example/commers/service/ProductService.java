@@ -1,9 +1,9 @@
-package com.example.commers.service.product;
+package com.example.commers.service;
 
-import com.example.commers.domain.product.Category;
-import com.example.commers.domain.product.Product;
-import com.example.commers.repository.product.CategoryRepository;
-import com.example.commers.repository.product.ProductRepository;
+import com.example.commers.domain.Category;
+import com.example.commers.domain.Product;
+import com.example.commers.repository.CategoryRepository;
+import com.example.commers.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

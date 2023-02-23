@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body onload="click1()">
+<div id="main">
+
+</div>
+
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function click1(){
+
+        var ajax = $.ajax({
+            url: "/cart/search",
+            type: 'GET',
+            contentType: 'application/json',
+            success: function (result) {
+                if(result.code == 1000){
+                    alert("조회 성공");
+                    for(let i=0;i<result.result.length;i++)
+                    {
+                        $("#main").append(
+                            "<div><h1>"+result.result[i]["id"]+"장바구니 상세보기</h1></div>"
+                        )
+                    }
+                    $("#main").append(
+                        "<div><button onclick='addCart()'>장바구니 추가</button></div>"
+                    )
+                }
+                else if(result.code == 2003) {
+                    $("#main").append(
+                        "<div><h1>장바구니 없음</h1></div>" +
+                        "<div><button onclick='addCart()'>장바구니 추가</button></div>"
+                    )
+
+
+                }
+                else if(result.code == 2001) {
+                    alert("로그인 정보를 확인하십시오");
+                    window.location = 'http://localhost:8080/loginPage';
+                }
+            }
+        });
+        alert("조회")
+    }
+
+    function addCart(){
+
+        var ajax = $.ajax({
+            url: "/cart/add",
+            type: 'POST',
+            contentType: 'application/json',
+            success: function (result) {
+                if(result.code == 1000){
+                    location.reload()
+                }
+            //     else if(result.code == 2003) {
+            //         $("#main").append(
+            //             "<div><h1>장바구니 없음</h1></div>" +
+            //             "<div><button>장바구니 추가</button></div>"
+            //         )
+            //
+            //
+            //     }
+            //     else if(result.code == 2001) {
+            //         alert("로그인 정보를 확인하십시오");
+            //     }
+            }
+        })
+    }
+
+</script>

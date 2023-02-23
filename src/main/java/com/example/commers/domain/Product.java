@@ -1,4 +1,4 @@
-package com.example.commers.domain.cart;
+package com.example.commers.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,13 +13,23 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class Cart {
+@NoArgsConstructor
+public class Product {
 
     @Id
     @GeneratedValue
     private int id;
-    private int userId;
+
+    private String name;
+
+    private String category;
+
+    private int price;
+
+    private String imgUrl;
+
+    private String manufacturer;
+
     private LocalDate createAt;
 }

@@ -1,6 +1,6 @@
-package com.example.commers.repository.product;
+package com.example.commers.repository;
 
-import com.example.commers.domain.product.Product;
+import com.example.commers.domain.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

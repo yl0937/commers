@@ -1,4 +1,4 @@
-package com.example.commers.domain.product;
+package com.example.commers.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,13 +12,15 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class Category {
+@AllArgsConstructor
+public class CartProduct {
 
     @Id
     @GeneratedValue
     private int id;
 
-    private String name;
+    private int cartId;
+
+    private int productId;
 }
